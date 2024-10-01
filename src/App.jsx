@@ -18,6 +18,12 @@ setInterval(()=>{
 
 }
 
+componentDidUpdate(){
+  console.log('Atualizou!')
+}
+
+
+
   render(){
   return(
     <div>
