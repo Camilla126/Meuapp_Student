@@ -1,35 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component }from "react";
 
-class Equipe extends Component{
-  render(){
-return(
-  <div>
-    <Sobre nome={this.props.nome} cargo={this.props.cargo} idade={this.props.idade} />
-    <hr />
-  </div>
-)
-  }
+class App extends Component{
+
+constructor(props){
+super(props);
+this.state = {
+nome: 'Camilla',
+contador: 0
+};
+
+this.aumentar = this.aumentar.bind(this);
+this.diminuir = this.diminuir.bind(this);
 }
 
-class Sobre extends Component{
-  render(){
-    return(
-      <div>
-    <h2>Olá sou o(a) {this.props.nome}</h2>
-    <h3>Cargo: {this.props.cargo}</h3>
-    <h3>idade: {this.props.idade} anos</h3>
-  </div>
-    )
-  }
+aumentar(){
+  let state = this.state;
+  state.contador += 1;
+  state.nome = 'Stefan'
+  this.setState(state)
 }
 
-function App() {
-  return (
+diminuir(){
+  let state = this.state;
+if(state.contador === 0){
+  alert('Opa chegou a zero!');
+  return;
+}
+
+  state.contador -= 1;
+  this.setState(state);
+}
+
+
+  render(){
+  return(
     <div>
-      <h1>Conheça nossa equipe:</h1> 
-     <Equipe nome= "Katherine" cargo="Duplicata" idade="567" />
-     <Equipe nome= "Emily" cargo="Bruxa" idade="27" />
+      <h1>Contador</h1>
+      {this.state.nome}
+<h3>
+  <button onClick={this.diminuir}>-</button>
+  {this.state.contador}
+  <button onClick={this.aumentar}>+</button>
+  </h3>
     </div>
   );
 }
+}
+
 export default App;
