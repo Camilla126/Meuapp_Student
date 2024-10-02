@@ -1,18 +1,11 @@
 import React, { Component }from "react";
-
+import Membro from './components/Membro'
 class App extends Component{
-
-aumentar(){
-  let state = this.state;
-  state.contador +=1;
-  this.setState(state)
-
-}
-
+  
   render(){
   return(
     <div>
-  
+ <Membro nome='visitante'/>
     </div>
   );
 }
